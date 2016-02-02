@@ -1,0 +1,5 @@
+set(DISABLE_JIT 1)
+list(APPEND LDFLAGS -lobjc -framework Foundation)
+if(DEFINED CC_UNDER_TEST_IS_LLVM_GCC)
+  set(EXEC_XFAILS dot-syntax-2)
+endif()
