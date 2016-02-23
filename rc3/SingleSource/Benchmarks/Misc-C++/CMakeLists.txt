@@ -1,0 +1,14 @@
+set(DIRS)
+
+set(DIRS Large)
+list(APPEND LDFLAGS -lm -lstdc++)
+set(LIBS -lstdc++)
+set(FP_ABSTOLERANCE 0.01)
+if("${ARCH}" STREQUAL "XCore")
+  if(NOT DEFINED SMALL_PROBLEM_SIZE)
+    set(XCORE_TARGET_NEEDS_MEMORY 128)
+  endif()
+endif()
+llvm_singlesource()
+
+llvm_add_subdirectories(${DIRS})
