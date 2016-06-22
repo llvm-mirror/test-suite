@@ -1,0 +1,5 @@
+set(PARALLEL_DIRS)
+
+set(PARALLEL_DIRS bh em3d mst power tsp bisort health perimeter treeadd voronoi)
+
+llvm_add_subdirectories(${PARALLEL_DIRS})
