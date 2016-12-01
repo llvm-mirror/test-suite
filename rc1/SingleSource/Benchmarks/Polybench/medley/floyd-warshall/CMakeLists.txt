@@ -1,0 +1,8 @@
+set(POLYBENCH_UTILS SingleSource/Benchmarks/Polybench/utilities )
+set(PROG floyd-warshall)
+list(APPEND CFLAGS -I ${CMAKE_SOURCE_DIR}/${POLYBENCH_UTILS} -DPOLYBENCH_DUMP_ARRAYS)
+if(DEFINED SMALL_PROBLEM_SIZE)
+  list(APPEND CFLAGS -DSMALL_DATASET)
+endif()
+set(HASH_PROGRAM_OUTPUT 1)
+llvm_singlesource()
