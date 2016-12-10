@@ -1,0 +1,1 @@
+llvm_add_subdirectories(SMG2000)

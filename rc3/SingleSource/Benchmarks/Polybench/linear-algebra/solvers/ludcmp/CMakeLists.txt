@@ -1,0 +1,5 @@
+set(POLYBENCH_UTILS SingleSource/Benchmarks/Polybench/utilities )
+set(PROG ludcmp)
+list(APPEND CFLAGS -I ${CMAKE_SOURCE_DIR}/${POLYBENCH_UTILS} -DPOLYBENCH_DUMP_ARRAYS)
+set(HASH_PROGRAM_OUTPUT 1)
+llvm_singlesource()
