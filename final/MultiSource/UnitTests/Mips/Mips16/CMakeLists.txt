@@ -1,0 +1,1 @@
+llvm_add_subdirectories(multitest fp16_32_1)

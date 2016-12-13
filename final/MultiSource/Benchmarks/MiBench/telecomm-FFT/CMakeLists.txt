@@ -1,0 +1,6 @@
+set(PROG telecomm-fft)
+list(APPEND LDFLAGS -lm)
+set(RUN_OPTIONS 8 32768 -i)
+set(FP_ABSTOLERANCE 0.00001)
+set(HASH_PROGRAM_OUTPUT 1)
+llvm_multisource()
