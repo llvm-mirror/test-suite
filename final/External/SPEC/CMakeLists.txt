@@ -1,0 +1,5 @@
+add_subdirectory(CINT95)
+add_subdirectory(CINT2000)
+add_subdirectory(CFP2000)
+add_subdirectory(CINT2006)
+add_subdirectory(CFP2006)
