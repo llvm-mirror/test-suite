@@ -1,0 +1,7 @@
+list(APPEND CPPFLAGS -DTORONTO)
+if(LARGE_PROBLEM_SIZE)
+  set(RUN_OPTIONS 4000)
+else()
+  set(RUN_OPTIONS 1000)
+endif()
+llvm_multisource(mst)
