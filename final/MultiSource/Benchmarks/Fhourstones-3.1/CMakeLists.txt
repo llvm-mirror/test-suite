@@ -1,0 +1,8 @@
+if(LARGE_PROBLEM_SIZE)
+  set(INPUTS inputs_large)
+else()
+  set(INPUTS inputs)
+endif()
+set(RUN_OPTIONS < ${INPUTS})
+llvm_multisource(fhourstones3.1)
+llvm_test_data(fhourstones3.1 ${INPUTS})
