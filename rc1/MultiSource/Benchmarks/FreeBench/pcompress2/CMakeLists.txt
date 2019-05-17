@@ -1,0 +1,10 @@
+list(APPEND CPPFLAGS -DVERSION="1.00" -DCOMPDATE="today" -DCFLAGS="" -DHOSTNAME="thishost")
+if(LARGE_PROBLEM_SIZE)
+  set(INPUT_FILE ref.in)
+else()
+  set(INPUT_FILE test.in)
+endif()
+set(RUN_OPTIONS ${INPUT_FILE})
+
+llvm_multisource(pcompress2)
+llvm_test_data(pcompress2 ${INPUT_FILE})

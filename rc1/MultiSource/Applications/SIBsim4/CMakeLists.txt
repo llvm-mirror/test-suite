@@ -1,0 +1,8 @@
+if(SMALL_PROBLEM_SIZE)
+  set(INPUTS x-small.fa y-small.fa)
+else()
+  set(INPUTS x.fa y.fa)
+endif()
+set(RUN_OPTIONS -A4 ${INPUTS})
+llvm_multisource(SIBsim4)
+llvm_test_data(SIBsim4 ${INPUTS})

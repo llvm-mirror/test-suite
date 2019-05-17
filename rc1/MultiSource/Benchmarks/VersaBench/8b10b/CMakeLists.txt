@@ -1,0 +1,7 @@
+if(SMALL_PROBLEM_SIZE)
+  set(RUN_OPTIONS input.txt 2000)
+else()
+  set(RUN_OPTIONS input.txt 20000)
+endif()
+llvm_multisource(8b10b)
+llvm_test_data(8b10b input.txt)
