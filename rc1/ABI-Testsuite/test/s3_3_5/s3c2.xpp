@@ -1,0 +1,19 @@
+// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
+// See https://llvm.org/LICENSE.txt for license information.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+// RUN: cxx_compiler %s -c -o %t.o
+// RUN: bindump %t.o | tee %t.tmp | FileCheck %s
+
+#include <stdio.h>
+#include <stdlib.h>
+
+// Check that atexit is not defined in the module (it should be provided by the library)
+
+// CHECK: {{(U|SHN_UNDEF) atexit}}
+
+void fn01() { printf("%s()\n", __FUNCTION__); }
+
+int main(int argc, char *argv[]) {
+  atexit(fn01);
+  return 0;
+}

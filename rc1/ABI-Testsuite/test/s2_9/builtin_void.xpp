@@ -1,0 +1,24 @@
+// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
+// See https://llvm.org/LICENSE.txt for license information.
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+// RUN: cxx_compiler -c cxx_rtti cxx_exceptions %s -o %t.o
+// RUN: linker %t.o -o %t%exeext
+// RUN: bindump %t.o| FileCheck %s
+
+#include <typeinfo>
+
+// Test run-time library includes support for builtin type "void"
+
+int global_int = 10;
+void const *global_ptr;
+
+// CHECK-DAG: _ZTIv
+const std::type_info &foo1() { const std::type_info &t = typeid(void); return t; }
+// CHECK-DAG: _ZTIPv
+void foo2() { throw (void *)&global_int; }
+// CHECK-DAG: _ZTIPKv
+void foo3() { try { foo2(); } catch(void const *p) { } }
+
+int main(int argc, char *argv[]) {
+  return 0;
+}
