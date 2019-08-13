@@ -1,0 +1,4 @@
+set(RUN_OPTIONS < primes.b)
+set(HASH_PROGRAM_OUTPUT 1)
+llvm_multisource(bc)
+llvm_test_data(bc primes.b)
