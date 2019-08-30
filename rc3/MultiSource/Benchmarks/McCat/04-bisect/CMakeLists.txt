@@ -1,0 +1,5 @@
+list(APPEND LDFLAGS -lm)
+set(FP_TOLERANCE 0.001)
+set(RUN_OPTIONS < bisect_test.in)
+llvm_multisource(bisect)
+llvm_test_data(bisect bisect_test.in)
