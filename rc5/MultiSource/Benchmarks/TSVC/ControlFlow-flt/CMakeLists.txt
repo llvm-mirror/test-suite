@@ -1,0 +1,4 @@
+list(APPEND LDFLAGS -lm)
+list(APPEND CFLAGS -std=gnu99)
+set(RUN_OPTIONS 2325 5)
+llvm_multisource(ControlFlow-flt)
