@@ -1,0 +1,8 @@
+list(APPEND CPPFLAGS -DTORONTO)
+list(APPEND LDFLAGS -lm)
+if(LARGE_PROBLEM_SIZE)
+  set(RUN_OPTIONS 3000000)
+else()
+  set(RUN_OPTIONS 700000)
+endif()
+llvm_multisource(bisort)
